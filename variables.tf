@@ -16,3 +16,12 @@ variable "Subnet-private" {
     default = "10.1.1.0/24"
     description = "Private subnet"
 }
+
+data "aws_ami" "jenkins_app_ami" {
+    most_recent = true
+
+    filter {
+        name = "name"
+        values = ["jenkins-*"]
+    }
+}
